@@ -15,6 +15,19 @@ services:
       - BACKEND_PORT=${BACKEND_PORT}
     depends_on:
       - mongo
+  
+  fe:
+    build:
+      context: ./fe
+      dockerfile: Dockerfile
+    volumes:
+      - ./fe:/app
+      - /app/node_modules
+    ports:
+      - "${FRONTEND_PORT}:${FRONTEND_PORT}"
+    environment:
+      - NODE_ENV=development
+      - FRONTEND_PORT=${FRONTEND_PORT}
 
   mongo:
     image: mongo:latest
