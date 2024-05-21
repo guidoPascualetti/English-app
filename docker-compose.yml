@@ -9,9 +9,10 @@ services:
       - ./be:/app
       - /app/node_modules
     ports:
-      - "3000:3000" # Ajusta el puerto según sea necesario
+      - "${BACKEND_PORT}:${BACKEND_PORT}" 
     environment:
       - NODE_ENV=development
+      - BACKEND_PORT=${BACKEND_PORT}
     depends_on:
       - mongo
 
@@ -24,15 +25,3 @@ services:
 
 volumes:
   mongo-data:
-
-  #  frontend:
-  #   build:
-  #     context: ./frontend
-  #     dockerfile: Dockerfile
-  #   volumes:
-  #     - ./frontend:/app
-  #     - /app/node_modules
-  #   ports:
-  #     - "3000:3000" # Ajusta el puerto según sea necesario
-  #   environment:
-  #     - NODE_ENV=development
