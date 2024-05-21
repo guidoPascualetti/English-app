@@ -1,48 +1,23 @@
+# Usa una imagen base oficial de Node.js
 FROM node:latest
 
+# Establece el directorio de trabajo
 WORKDIR /app
 
-# Copiar la aplicación al contenedor
-COPY . .
+# Copia package.json y package-lock.json
+COPY package*.json ./
 
-# Instalar dependencias
+# Instala las dependencias
 RUN npm install
 
-# Exponer el puerto
+# Copia el resto del código de la aplicación
+COPY . .
+
+# Instala nodemon para desarrollo
+RUN npm install -g nodemon
+
+# Expone el puerto en el que corre tu aplicación (ajústalo según sea necesario)
 EXPOSE 3000
 
-# Declarar el volumen
-VOLUME /app
-
-
-CMD ["npm", "run", "dev"]
-
-
-# FROM node:12.22.1-alpine3.11
-
-# RUN apk add --no-cache python2 build-base
-
-# WORKDIR /app
-
-# COPY . /app
-
-# RUN npm install
-
-
-# ADD package.json /tmp/package.json
-# RUN cd /tmp && npm install
-# RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
-# ADD . /opt/app
-# EXPOSE 3000
-
-
-
-# FROM mhart/alpine-node:latest
-
-# ADD package.json /tmp/package.json
-# RUN cd /tmp && npm install
-# RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
-# WORKDIR /opt/app
-# ADD . /opt/app
-# EXPOSE 3000
-# CMD ["npm", "start"] 
+# Comando para correr la aplicación en modo desarrollo
+CMD ["nodemon", "src/index.js"]

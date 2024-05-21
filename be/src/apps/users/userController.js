@@ -1,4 +1,4 @@
-import userModel from "./userModel.js";
+// import userModel from "./userModel.js";
 import catchedAsync from "../utils/errorsHandler/catchedAsync.js";
 import okResponse from "../utils/responses/okResponse.js";
 import { ClientError } from "../utils/errorsHandler/errorsHandler.js";

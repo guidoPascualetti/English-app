@@ -1,14 +1,38 @@
-version: "2"
+version: "3.8"
+
 services:
-  web:
-    build: ./be
-    ports:
-      - "3000:3000"
-    links:
-      - mongo
-  mongo:
-    image: mongo
+  be:
+    build:
+      context: ./be
+      dockerfile: Dockerfile
     volumes:
-      - /data/mongodb/db:/data/db
+      - ./be:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000" # Ajusta el puerto según sea necesario
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
     ports:
       - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
+
+  #  frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - ./frontend:/app
+  #     - /app/node_modules
+  #   ports:
+  #     - "3000:3000" # Ajusta el puerto según sea necesario
+  #   environment:
+  #     - NODE_ENV=development

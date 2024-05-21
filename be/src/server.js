@@ -1,5 +1,5 @@
 import express from "express";
-import usersRouter from "./apps/users/userRouter.js";
+// import usersRouter from "./apps/users/userRouter.js";
 import initialLog from "./helpers/initialLog.js";
 
 const app = express();
@@ -13,10 +13,10 @@ app.use((req, res, next) => {
 
   next();
 });
-
+//
 app.get("/ping", (req, res) => res.send("Pong"));
 
-app.use(`/api/v1/users`, usersRouter);
+// app.use(`/api/v1/users`, usersRouter);
 
 /**
  * @description Logs all errors to the console.

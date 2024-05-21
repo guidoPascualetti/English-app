@@ -6,7 +6,7 @@ const SERVER_PORT = 3000;
 
 // global.db_con = db_instance;
 // global.User = global.db_con("users");
-
+// global.Word = global.db_con("words");
 app.listen(SERVER_PORT, async () => {
   console.log(`server port: ${SERVER_PORT}`);
 });
