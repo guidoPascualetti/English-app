@@ -14,8 +14,8 @@ RUN npm install
 COPY . .
 
 # Expone el puerto en el que corre tu aplicación (ajústalo según sea necesario)
-EXPOSE 5173
+EXPOSE 8080
 
 # Comando para correr la aplicación en modo desarrollo
 
-CMD ["npm", "run", "preview"]
+CMD ["npm", "run", "dev"]
