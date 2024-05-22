@@ -25,11 +25,10 @@ services:
       - /app/node_modules
 
     ports:
-      - "${FRONTEND_PORT}:${FRONTEND_PORT}"
+      - "5173:5173"
     environment:
       - NODE_ENV=development
-      - FRONTEND_PORT=${FRONTEND_PORT}
-
+    
   mongo:
     image: mongo:latest
     ports:

@@ -5,7 +5,7 @@ const SERVER_PORT = 3000;
 const BACKEND_PORT = process.env.BACKEND_PORT
 // const db_instance = knex(knexConfig);
 // saasaas
-// dasdsa
+
 // global.db_con = db_instance;
 // global.User = global.db_con("users");
 // global.Word = global.db_con("words");

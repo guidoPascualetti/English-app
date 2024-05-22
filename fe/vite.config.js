@@ -4,9 +4,14 @@ import dotenv from "dotenv";
 
 dotenv.config();
 // https://vitejs.dev/config/
+
 export default defineConfig({
-  server: {
-    port: process.env.FRONTEND_PORT || 4000, // Usa el valor de la variable de entorno PORT
-  },
   plugins: [react()],
-});
+  server: {
+   watch: {
+    usePolling: true,
+   },
+   host: true, // Here
+   strictPort: true,
+   port: 8080, 
+ }})
