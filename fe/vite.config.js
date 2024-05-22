@@ -6,7 +6,7 @@ dotenv.config();
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    port: process.env.PORT, // Usa el valor de la variable de entorno PORT
+    port: process.env.FRONTEND_PORT || 4000, // Usa el valor de la variable de entorno PORT
   },
   plugins: [react()],
 });

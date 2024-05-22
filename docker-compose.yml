@@ -9,13 +9,13 @@ services:
       - ./be:/app
       - /app/node_modules
     ports:
-      - "${BACKEND_PORT}:${BACKEND_PORT}" 
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
     environment:
       - NODE_ENV=development
       - BACKEND_PORT=${BACKEND_PORT}
     depends_on:
       - mongo
-  
+
   fe:
     build:
       context: ./fe
@@ -23,6 +23,7 @@ services:
     volumes:
       - ./fe:/app
       - /app/node_modules
+
     ports:
       - "${FRONTEND_PORT}:${FRONTEND_PORT}"
     environment:

@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3001
 
 # Comando para correr la aplicación en modo desarrollo
-CMD ["npm", "run", "dev"]
+CMD ["npx", "vite"]
