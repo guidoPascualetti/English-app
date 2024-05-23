@@ -1,28 +1,25 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+
+
+import Home from "./app/pages/home/home.view"
+import Navbar from "./app/common/navbar/navbar.component";
+// Constants
+
+export const NavbarItems = [
+  { label: "home", link:"home"},
+  { label: "anfitrion", link:"anfitrion"},
+  { label: "comensal", link:"comensal"}
+]
+const items = ['Item 1', 'Item 2', 'Item 3'];
 
 function App() {
-  const [count, setCount] = useState(0);
-  // fdsfsd
+  
   return (
     <>
-      <div>
+    <Navbar items={items} title={"title"}></Navbar>
 
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is guido
-        </button>
-  
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+   <Home></Home>
     </>
-    // dasd
+ 
   );
 }
 
